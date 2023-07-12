@@ -167,10 +167,10 @@ Contributing
 
 Tips for test environment setup
 ================================
-You can setup test environment by following ``.travis.yaml`` in this repository. It uses Cloudera's CDH which requires username and password for download.
+You can setup test environment by following ``.travis.yaml`` in this repository. It uses `Cloudera's CDH 5 <https://docs.cloudera.com/documentation/enterprise/release-notes/topics/cdh_vd_cdh_download_510.html>`_ which requires username and password for download.
 It may not be feasible for everyone to get those credentials. Hence below are alternative instructions to setup test environment.
 
-You can clone `this repository <https://github.com/big-data-europe/docker-hive/blob/master/docker-compose.yml>`_ which already has docker-compose.yaml for Presto and Hive.
+You can clone `this repository <https://github.com/big-data-europe/docker-hive/blob/master/docker-compose.yml>`_ which has Docker Compose setup for Presto and Hive.
 You can add below lines to its docker-compose.yaml to start Trino in same environment::
  
     trino:
@@ -181,6 +181,9 @@ You can add below lines to its docker-compose.yaml to start Trino in same enviro
             - ./trino:/etc/trino
 
 Note: ``./trino`` for docker volume defined above is `trino config from this repository <https://github.com/dropbox/PyHive/tree/master/scripts/travis-conf/trino>`_
+
+Then run::
+    docker-compose up -d
 
 Testing
 =======
