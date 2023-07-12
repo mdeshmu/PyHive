@@ -14,8 +14,8 @@ PyHive
 ======
 
 PyHive is a collection of Python `DB-API <http://www.python.org/dev/peps/pep-0249/>`_ and
-`SQLAlchemy <http://www.sqlalchemy.org/>`_ interfaces for `Presto <http://prestodb.io/>`_ and
-`Hive <http://hive.apache.org/>`_.
+`SQLAlchemy <http://www.sqlalchemy.org/>`_ interfaces for `Presto <http://prestodb.io/>`_ ,
+`Hive <http://hive.apache.org/>`_ and `Trino <https://trino.io/>`_.
 
 Usage
 =====
@@ -25,7 +25,7 @@ DB-API
 .. code-block:: python
 
     from pyhive import presto  # or import hive or import trino
-    cursor = presto.connect('localhost').cursor()
+    cursor = presto.connect('localhost').cursor()  # or use hive.connect or use trino.connect
     cursor.execute('SELECT * FROM my_awesome_data LIMIT 10')
     print cursor.fetchone()
     print cursor.fetchall()
@@ -61,7 +61,7 @@ In Python 3.7 `async` became a keyword; you can use `async_` instead:
 
 SQLAlchemy
 ----------
-First install this package to register it with SQLAlchemy (see ``setup.py``).
+First install this package to register it with SQLAlchemy (see [setup.py](setup.py#L69)).
 
 .. code-block:: python
 
@@ -117,7 +117,7 @@ Passing session configuration
                       'session_props': {'query_max_run_time': '1234m'}}
     )
     create_engine(
-        'trino://user@host:443/hive',
+        'trino+pyhive://user@host:443/hive',
         connect_args={'protocol': 'https',
                       'session_props': {'query_max_run_time': '1234m'}}
     )
@@ -136,9 +136,12 @@ Requirements
 
 Install using
 
-- ``pip install 'pyhive[hive]'`` for the Hive interface and
-- ``pip install 'pyhive[presto]'`` for the Presto interface.
+- ``pip install 'pyhive[hive]'`` or ``pip install 'pyhive[hive_pure_sasl]'`` for the Hive interface
+- ``pip install 'pyhive[presto]'`` for the Presto interface
 - ``pip install 'pyhive[trino]'`` for the Trino interface
+
+Note: ``'pyhive[hive]'`` extras uses `sasl <https://pypi.org/project/sasl/>`_ that doesn't support Python 3.11, See `github issue <https://github.com/cloudera/python-sasl/issues/30>`_.
+Hence PyHive supports additional extras ``'pyhive[hive_pure_sasl]'`` which uses `pure-sasl <https://pypi.org/project/pure-sasl/>`_ that supports Python 3.11.
 
 PyHive works with
 
@@ -180,6 +183,17 @@ Run the following in an environment with Hive/Presto::
 
 WARNING: This drops/creates tables named ``one_row``, ``one_row_complex``, and ``many_rows``, plus a
 database called ``pyhive_test_database``.
+
+Note: You can use this [hive/presto docker setup](https://github.com/big-data-europe/docker-hive/blob/master/docker-compose.yml) for running the test cases. 
+You can add below lines to docker-compose.yaml to start Trino in same environment. 
+
+.. code-block:: yaml
+    trino:
+        image: trinodb/trino:351    
+        ports:     
+            - "18080:18080"    
+        volumes:    
+            - ./trino:/etc/trino    # [trino config from this repository](https://github.com/dropbox/PyHive/tree/master/scripts/travis-conf/trino)
 
 Updating TCLIService
 ====================
