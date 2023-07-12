@@ -61,7 +61,7 @@ In Python 3.7 `async` became a keyword; you can use `async_` instead:
 
 SQLAlchemy
 ----------
-First install this package to register it with SQLAlchemy, see entry_points in ``setup.py``.
+First install this package to register it with SQLAlchemy, see ``entry_points`` in ``setup.py``.
 
 .. code-block:: python
 
@@ -141,7 +141,7 @@ Install using
 - ``pip install 'pyhive[trino]'`` for the Trino interface
 
 Note: ``'pyhive[hive]'`` extras uses `sasl <https://pypi.org/project/sasl/>`_ that doesn't support Python 3.11, See `github issue <https://github.com/cloudera/python-sasl/issues/30>`_.
-Hence PyHive supports additional extras ``'pyhive[hive_pure_sasl]'`` which uses `pure-sasl <https://pypi.org/project/pure-sasl/>`_ that supports Python 3.11.
+Hence PyHive also supports `pure-sasl <https://pypi.org/project/pure-sasl/>`_ via additional extras ``'pyhive[hive_pure_sasl]'`` to support Python 3.11.
 
 PyHive works with
 
