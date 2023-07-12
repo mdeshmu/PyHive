@@ -180,7 +180,7 @@ You can add below lines to its docker-compose.yaml to start Trino in same enviro
         volumes:    
             - ./trino:/etc/trino
 
-Note: ``./trino`` for docker volume defined above is `trino config from this repository <https://github.com/dropbox/PyHive/tree/master/scripts/travis-conf/trino>`_
+Note: ``./trino`` for docker volume defined above is `trino config from PyHive repository <https://github.com/dropbox/PyHive/tree/master/scripts/travis-conf/trino>`_
 
 Then run::
     docker-compose up -d
