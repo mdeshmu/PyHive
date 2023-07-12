@@ -146,8 +146,8 @@ Hence PyHive also supports `pure-sasl <https://pypi.org/project/pure-sasl/>`_ vi
 PyHive works with
 
 - Python 2.7 / Python 3
-- For Presto: Presto install
-- For Trino: Trino install
+- For Presto: `Presto installation <https://prestodb.io/docs/current/installation.html>`_
+- For Trino: `Trino installation <https://trino.io/docs/current/installation.html>`_
 - For Hive: `HiveServer2 <https://cwiki.apache.org/confluence/display/Hive/Setting+up+HiveServer2>`_ daemon
 
 Changelog
