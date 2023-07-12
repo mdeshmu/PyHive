@@ -61,8 +61,7 @@ In Python 3.7 `async` became a keyword; you can use `async_` instead:
 
 SQLAlchemy
 ----------
-First install this package to register it with SQLAlchemy, see `setup.py <https://github.com/dropbox/PyHive/blob/master/setup.py#L69>`_::
-    pip install -e .
+First install this package to register it with SQLAlchemy, see `setup.py <https://github.com/dropbox/PyHive/blob/master/setup.py#L69>`_
 
 .. code-block:: python
 
