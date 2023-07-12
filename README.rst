@@ -184,16 +184,17 @@ Run the following in an environment with Hive/Presto::
 WARNING: This drops/creates tables named ``one_row``, ``one_row_complex``, and ``many_rows``, plus a
 database called ``pyhive_test_database``.
 
-Note: You can use this [hive/presto docker setup](https://github.com/big-data-europe/docker-hive/blob/master/docker-compose.yml) for running the test cases. 
+Note: You can use this 'hive/presto docker setup <https://github.com/big-data-europe/docker-hive/blob/master/docker-compose.yml>'_ for running the test cases. 
 You can add below lines to docker-compose.yaml to start Trino in same environment. 
 
-.. code-block:: yaml
+```yaml
     trino:
         image: trinodb/trino:351    
         ports:     
             - "18080:18080"    
         volumes:    
-            - ./trino:/etc/trino    # [trino config from this repository](https://github.com/dropbox/PyHive/tree/master/scripts/travis-conf/trino)
+            - ./trino:/etc/trino    # 'trino config from this repository <https://github.com/dropbox/PyHive/tree/master/scripts/travis-conf/trino>'_
+```
 
 Updating TCLIService
 ====================
