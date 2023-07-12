@@ -175,7 +175,9 @@ You can add below lines to docker-compose.yaml to start Trino in same environmen
         ports:     
             - "18080:18080"    
         volumes:    
-            - ./trino:/etc/trino    # `trino config from this repository <https://github.com/dropbox/PyHive/tree/master/scripts/travis-conf/trino>`_
+            - ./trino:/etc/trino
+
+Note: ``./trino`` for docker volume defined above is `trino config from this repository <https://github.com/dropbox/PyHive/tree/master/scripts/travis-conf/trino>`_
 
 Testing
 =======
