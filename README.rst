@@ -168,7 +168,7 @@ Contributing
 Tips for test environment setup
 ================================
 You can use this `hive/presto docker setup <https://github.com/big-data-europe/docker-hive/blob/master/docker-compose.yml>`_ for running the test cases. 
-You can add below lines to docker-compose.yaml to start Trino in same environment. 
+You can add below lines to docker-compose.yaml to start Trino in same environment::
  
     trino:
         image: trinodb/trino:351    
