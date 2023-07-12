@@ -141,7 +141,7 @@ Install using
 - ``pip install 'pyhive[trino]'`` for the Trino interface
 
 Note: ``'pyhive[hive]'`` extras uses `sasl <https://pypi.org/project/sasl/>`_ that doesn't support Python 3.11, See `github issue <https://github.com/cloudera/python-sasl/issues/30>`_.
-Hence PyHive also supports `pure-sasl <https://pypi.org/project/pure-sasl/>`_ via additional extras ``'pyhive[hive_pure_sasl]'`` to support Python 3.11.
+Hence PyHive also supports `pure-sasl <https://pypi.org/project/pure-sasl/>`_ via additional extras ``'pyhive[hive_pure_sasl]'`` which support Python 3.11.
 
 PyHive works with
 
